@@ -30,25 +30,21 @@ Node::~Node()
     delete _v_node;
     delete _f_node;
 }
-//teste
+//impressao do codigo da arvore
 void Node::imprimir(int indent)
 {
-    for (int i = 0; i < indent; ++i) std::cout << "  ";
-
+    std::string indentacao(indent, ' ');
     if (is_folha())
     {
-        std::cout << "[Folha] -> Classe: " << _classe << "\n";
+        std::cout <<indentacao<<"Classe[i]="<< _classe << ";\n";
         return;
     }
-
-    std::cout << "[Nó Prof " << _depth << "] Atributo["
-              << _condicao.get_index() << "] > " << _condicao.get_limit() << "\n";
-
-    for (int i = 0; i < indent; ++i) std::cout << "  ";
-    std::cout << "├── (V):\n";
-    _v_node->imprimir(indent + 2);
-
-    for (int i = 0; i < indent; ++i) std::cout << "  ";
-    std::cout << "└── (F):\n";
-    _f_node->imprimir(indent + 2);
+    std::cout<<indentacao;
+    std::cout <<"if(A[i*n_atributos+"<<_condicao.get_index()<<"]"<<_condicao.get_operador()<<_condicao.get_limit()<<"f){\n";
+    _v_node->imprimir(indent+4);
+    std::cout<<indentacao;
+    std::cout <<"} else {\n";
+    _f_node->imprimir(indent+4);
+    std::cout<<indentacao;
+    std::cout <<"}\n";
 }
