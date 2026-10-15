@@ -28,7 +28,7 @@ Arvore::~Arvore()
     delete _raiz;
 }
 
-void Arvore::avaliar(int *amostra, int index_classe)
+void Arvore::avaliar(float *amostra, int index_classe)
 {
     if (_raiz != nullptr)
     {

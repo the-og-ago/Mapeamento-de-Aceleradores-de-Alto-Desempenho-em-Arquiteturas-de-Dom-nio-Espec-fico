@@ -1,32 +1,25 @@
 #include "gerador.hpp"
-#include <cstdlib>
 #include <ctime>
+#include <random>
 Gerador::Gerador(int linhas, int colunas):_linhas(linhas), _colunas(colunas)
 {
-    _tabela = new int*[_linhas]();
-    for(int i=0;i<_linhas;i++)
-    {
-        _tabela[i]=new int[_colunas]();
-    }
+    _tabela = new float[_linhas*_colunas]();
 }
 Gerador::~Gerador()
 {
-    for(int i=0;i<_linhas;i++)
-    {
-        delete[] _tabela[i];
-    }
     delete[] _tabela;
     _tabela=nullptr;
-    _linhas=NULL;
-    _colunas=NULL;
+    _linhas=0;
+    _colunas=0;
 }
-void Gerador::randomizar(int sup_limit,int inf_limit)
+void Gerador::randomizar(float sup_limit,float inf_limit)
 {
-    for(int i=0;i<_linhas;i++)
-        for(int j=0;j<_colunas-1;j++)
-            _tabela[i][j]=inf_limit+(std::rand() % (sup_limit-inf_limit+1));
+    std::mt19937 generator(std::time(nullptr));
+    std::uniform_real_distribution<float> dist(inf_limit, sup_limit);
+    for(int i=0;i<_linhas*_colunas;i++)
+        _tabela[i]=dist(generator);
 }
-int** Gerador::get_tabela()
+float* Gerador::get_tabela()
 {
     return _tabela;
 }

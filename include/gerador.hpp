@@ -4,11 +4,11 @@ class Gerador{
     private:
     int _linhas;
     int _colunas;
-    int **_tabela;
+    float*_tabela;
     public:
     Gerador(int linhas,int colunas);
-    void randomizar(int sup_limit,int inf_limit);
-    int** get_tabela();
+    void randomizar(float sup_limit,float inf_limit);
+    float* get_tabela();
     ~Gerador();
 };
 #endif

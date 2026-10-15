@@ -13,7 +13,7 @@ public:
     int get_limit();
     int get_index();
     std::string get_operador();
-    bool is_valid(int *amostra);
+    bool is_valid(float *amostra);
     ~Condicao();
 };
 #endif

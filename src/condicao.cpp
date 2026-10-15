@@ -21,7 +21,7 @@ std::string Condicao::get_operador()
 {
     return _operador;
 } 
-bool Condicao::is_valid(int *amostra)
+bool Condicao::is_valid(float *amostra)
 {
     return amostra[_index]>_limite;
 }

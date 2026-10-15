@@ -25,12 +25,12 @@ int main()
     Arvore arvore(max_depth, max_attr_index, min_val, max_val, num_classes);
     auto t_end_gen = std::chrono::high_resolution_clock::now();
 
-    int **tabela = gerador.get_tabela();
+    float *tabela = gerador.get_tabela();
 
     auto t_start_eval = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < linhas; ++i)
+    for (int i = 0; i < linhas*colunas; i+=colunas)
     {
-        arvore.avaliar(tabela[i], index_classe);
+        arvore.avaliar(tabela+i, index_classe);
     }
     auto t_end_eval = std::chrono::high_resolution_clock::now();
 

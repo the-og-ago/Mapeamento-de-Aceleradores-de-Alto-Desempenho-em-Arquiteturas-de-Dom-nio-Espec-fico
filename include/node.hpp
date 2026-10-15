@@ -13,7 +13,7 @@ public:
     Node(int depth, int max_depth, Condicao condicao, Node *v_node, Node *f_node);
     bool is_folha();
     Node(int depth,int max_depth,int classe);
-    void avaliar(int *amostra,int index);
+    void avaliar(float *amostra,int index);
     //teste
     void imprimir(int indent = 0);
     ~Node();

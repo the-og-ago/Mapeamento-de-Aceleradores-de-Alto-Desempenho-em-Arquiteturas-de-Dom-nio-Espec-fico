@@ -14,7 +14,7 @@ public:
     Arvore(int max_depth, int max_index, int min_val, int max_val, int num_classes);
     ~Arvore();
 
-    void avaliar(int *amostra, int index_classe);
+    void avaliar(float *amostra, int index_classe);
     Node* get_raiz();
     //teste
     void imprimir();

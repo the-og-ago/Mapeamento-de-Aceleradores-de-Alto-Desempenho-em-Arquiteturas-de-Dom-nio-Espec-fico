@@ -10,7 +10,7 @@ bool Node::is_folha()
 {
     return _v_node==nullptr&&_f_node==nullptr;
 }
-void Node::avaliar(int *amostra, int index)
+void Node::avaliar(float *amostra, int index)
 {
     if(is_folha())
     {
