@@ -40,7 +40,7 @@ void Node::imprimir(int indent)
         return;
     }
     std::cout<<indentacao;
-    std::cout <<"if(A[i*n_atributos+"<<_condicao.get_index()<<"]"<<_condicao.get_operador()<<_condicao.get_limit()<<"f){\n";
+    std::cout <<"if(A[i*n_atributos+"<<_condicao.get_index()<<"]"<<_condicao.get_operador()<<_condicao.get_limit()<<"){\n";
     _v_node->imprimir(indent+4);
     std::cout<<indentacao;
     std::cout <<"} else {\n";
