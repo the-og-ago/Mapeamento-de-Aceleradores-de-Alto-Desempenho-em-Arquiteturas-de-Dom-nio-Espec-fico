@@ -41,10 +41,10 @@ Node* Arvore::get_raiz()
     return _raiz;
 }
 //teste
-void Arvore::imprimir()
+void Arvore::imprimir(int n_atributos)
 {
     if (_raiz != nullptr)
     {
-        _raiz->imprimir();
+        this->_raiz->imprimir(n_atributos);
     }
 }

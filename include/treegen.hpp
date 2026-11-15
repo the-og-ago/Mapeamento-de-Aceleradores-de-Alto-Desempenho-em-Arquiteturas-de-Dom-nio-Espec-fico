@@ -17,7 +17,7 @@ public:
     void avaliar(float *amostra, int index_classe);
     Node* get_raiz();
     //teste
-    void imprimir();
+    void imprimir(int n_atributos);
 };
 
 #endif

@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 #include "gerador.hpp"
+#include "arvore_gerada.cu"
+
 #define CHECK(call) \
 { \
     const cudaError_t error = call; \
@@ -12,25 +14,7 @@
         exit(1); \
     } \
 }
-__global__ void avaliar(float *A, int linhas, int n_atributos)
-{
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    if(i<linhas){
-        if(A[i*n_atributos+2]>30){
-            if(A[i*n_atributos+0]>23){
-                A[i*n_atributos+(n_atributos-1)]=1;
-            } else {
-                A[i*n_atributos+(n_atributos-1)]=2;
-            }
-        } else {
-            if(A[i*n_atributos+1]>53){
-                A[i*n_atributos+(n_atributos-1)]=2;
-            } else {
-                A[i*n_atributos+(n_atributos-1)]=0;
-            }
-        }
-    }
-}
+
 
 int main(int argc, char **argv)
 {
@@ -46,9 +30,9 @@ int main(int argc, char **argv)
 
     // set up data size of vectors
     int linhas= 1 << 20; //~1m
-    int colunas= 4;
-    float lim_s=10.0f;
-    float lim_i=-10.0f;
+    int colunas= 10;
+    float lim_s=100.0f;
+    float lim_i=0.0f;
     //int nElem = 1 << 24; // 2^24 = 16 M elements, 64Mbytes
     printf("Vector Size %d\n", linhas*colunas);
 

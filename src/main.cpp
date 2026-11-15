@@ -9,7 +9,7 @@ int main()
 {
     std::srand(std::time(nullptr));
 
-    int linhas = 1000000;
+    int linhas = 1<<20;
     int colunas = 10;
     int max_depth = 2;
     int num_classes = 3;
@@ -41,7 +41,7 @@ int main()
     std::cout << "Avaliacao: " << ms_eval.count() << " ms" << std::endl;
 
     //teste
-    arvore.imprimir();
+    arvore.imprimir(colunas);
     /*for (int i = 0; i < linhas; ++i)
     {
         for (int j = 0; j < colunas; ++j)
